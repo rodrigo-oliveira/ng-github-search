@@ -1,0 +1,10 @@
+<form class="sort-repositories">
+    <mat-form-field>
+      <mat-label>Sort by:</mat-label>
+      <mat-select [(value)]="selected">
+        @for (option of options; track option) {
+          <mat-option [value]="option">{{option}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+</form>

@@ -1,0 +1,30 @@
+<div class="repositories">
+    @if (repositories.length > 0) {
+        <div class="repositories__header">
+            <h2>Repositories</h2>
+            <app-sort-repositories></app-sort-repositories>
+        </div>
+    }
+
+    @for (repository of repositories; track repository) {
+        <div class="repository">    
+            <div class="repository__content">
+                <div class="repository__header">
+                    <a href="" class="repository__author">{{ repository.full_name }}</a>
+                    <span>{{repository.private ? 'Private' : 'Public'}}</span>
+                </div>
+                <span>{{ repository.description }}</span>
+        
+                <div class="repository__footer">
+                    <span>Tecnologies: {{ repository.language }}</span>
+                    <div class="repository__updated">
+                        <span>{{ repository.updated_at }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    } @empty {
+        <p>There are no repositories.</p>
+    }
+</div>
+

@@ -1,0 +1,9 @@
+<form class="search" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="search__input">
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-label>Search user</mat-label>
+      <input type="search" matInput formControlName="user">
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" class="search__button">Search</button>
+</form>

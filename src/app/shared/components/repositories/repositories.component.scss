@@ -1,0 +1,33 @@
+.repositories {
+   &__header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+   }
+}
+
+.repository {
+    display: flex;
+    flex-flow: row;
+    margin: 0 0 40px 0;
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+
+        h4 {
+            margin: 0 15px 15px 0;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        align-items: flex-start;
+        margin: 15px 0 0 0;
+        justify-content: space-between;
+    }
+
+    &__content {
+        flex: 1;
+    }
+}

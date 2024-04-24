@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IconResolver, MatIconRegistry } from '@angular/material/icon';
 

@@ -1,0 +1,26 @@
+.search {
+  display: flex;
+
+  &__input {
+    margin-right: 10px;
+    flex: 1;
+  }
+
+  &__button {
+    margin-left: 10px;
+    height: 56px;
+  }
+
+  @media screen and (max-width: 650px) {
+    flex-flow: column;
+    margin-bottom: 20px;
+
+    &__input {
+      margin-right: 0;
+    }
+  
+    &__button {
+      margin-left: 0;
+    }
+  }
+}
