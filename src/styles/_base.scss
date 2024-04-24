@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --athens-gray: #E8EAEE;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: var(--athens-gray);
+}
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: var(--mat-tree-node-text-font);
+}
+
+a {
+    color: #181818;
+    text-decoration: none;
+}
