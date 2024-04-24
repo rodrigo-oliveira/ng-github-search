@@ -32,9 +32,9 @@ export class ResultsSearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user = this.userStoreService.user();
+    this.user = this.userStoreService.user() || null;
 
-    if (this.user.login) {
+    if (this.user) {
       this.repositoriesService.getRepositoriesUser(this.user.login).subscribe((repositories: GitHubRepository[]) => {
           this.repositoriesStoreService.setRepositories(repositories);
           this.repositories = repositories;
