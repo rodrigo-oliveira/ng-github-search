@@ -1,9 +1,10 @@
-<header class="header">
+<header class="header" [class.header--align-left]="!alignCenter">
+    <mat-icon class="header__icon" *ngIf="showBackButton" (click)="back()">arrow_back_ios_new</mat-icon>
     <mat-icon
         class="header__logo"
         svgIcon="github-logo"
-        aria-hidden="false"
-        aria-label="Example done SVG icon"
+        alt="Github Logo"
+        title="Github Users"
     ></mat-icon>
     <h1 class="header__title">Github Users</h1>
 </header>
