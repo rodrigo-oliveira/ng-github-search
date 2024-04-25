@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ CommonModule, MatProgressSpinnerModule ],
   styleUrl: './loader.component.scss',
-  template: '<div class="loader" *ngIf="isLoading()"><mat-spinner></mat-spinner><div>'
+  template: '<div class="loader" [hidden]="!isLoading()"><mat-spinner></mat-spinner><div>'
 })
 export class LoaderComponent {
   isLoading: Signal<boolean> = this.loaderStoreService.isLoading;

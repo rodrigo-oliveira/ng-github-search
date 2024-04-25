@@ -1,24 +1,24 @@
 .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
 
-    &--align-left {
-        justify-content: flex-start;
-    }
+  &--align-left {
+    justify-content: flex-start;
+  }
 
-    &__icon {
-        margin-right: 10px;
-    }
+  &__icon {
+    margin-right: 10px;
+  }
 
-    &__logo {
-        margin-right: 10px;
-        width: 40px;
-        height: 40px;
-    }
+  &__logo {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+  }
 
-    &__title {
-        margin: 0;
-    }
+  &__title {
+    margin: 0;
+  }
 }

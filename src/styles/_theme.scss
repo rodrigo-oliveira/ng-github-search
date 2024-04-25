@@ -23,7 +23,7 @@ $ng-github-search-theme: mat.define-light-theme((
   color: (
     primary: $ng-github-search-primary,
     accent: $ng-github-search-accent,
-    warn: $ng-github-search-warn,
+    warn: $ng-github-search-warn
   ),
   density: 0
 ));
@@ -39,6 +39,9 @@ $my-typography: mat.define-typography-config(
   $headline-2: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
   $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
   $headline-4: mat.define-typography-level(34px, 40px, 400),
-  $headline-5: mat.define-typography-level(24px, 32px, 400),
+  $headline-5: mat.define-typography-level(24px, 24px, 400),
+  $headline-6: mat.define-typography-level(20px, 20px, 400),
+  $body-1: mat.define-typography-level(16px, 16px, 400),
+  $body-2: mat.define-typography-level(14px, 14px, 400)
 );
 @include mat.typography-hierarchy($my-typography);

@@ -1,8 +1,10 @@
 :host {
   display: block;
+}
 
-  app-user-details {
+.result-search {
+  &__user {
     display: block;
-    margin: 20px 0;
+    margin: 40px 0 20px 0;
   }
 }

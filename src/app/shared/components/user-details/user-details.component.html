@@ -7,10 +7,10 @@
       [title]="user.name"
     />
     <div class="user-details__content">
-      <div class="user-details__label">
-        <p>
-          @if (user.name) { {{ user.name }} | } {{ user.login }}
-        </p>
+      <div class="user-details__label user-details__label--name">
+        <h2>
+          @if (user.name) { {{ user.name }}<span class="user-details__divider">|</span>} <span>{{ user.login }}</span>
+        </h2>
       </div>
       <div class="user-details__label" *ngIf="user.bio">
         <p>{{ user.bio }}</p>
@@ -18,7 +18,7 @@
       <div class="user-details__label">
         <p>
           <mat-icon class="user-details__icon" title="Followers and following">group</mat-icon>Followers:
-          {{ user.followers }} | Following: {{ user.following }}
+          {{ user.followers }}<span class="user-details__divider">|</span>Following: {{ user.following }}
         </p>
       </div>
       <div class="user-details__label" *ngIf="user.location">

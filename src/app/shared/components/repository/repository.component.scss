@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+  border-radius: 20px;
+  transition: all 0.2s linear;
+
+  &:hover {
+    background-color: var(--catskill-whiteapprox);
+  }
+}
+
+.repository {
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__author {
+      font-size: 1rem;
+      margin: 0 10px 0 0;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0 0 0;
+    justify-content: space-between;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  p, span {
+    color: var(--secondary-gray);
+  }
+}

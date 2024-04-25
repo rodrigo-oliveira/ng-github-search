@@ -1,3 +1,5 @@
-<app-header [showBackButton]="true" [alignCenter]="false"></app-header>
-<app-user-details [user]="user"></app-user-details>
-<app-repositories [repositories]="repositories"></app-repositories>
+<div class="result-search">
+    <app-header [showBackButton]="true" [alignCenter]="false"></app-header>
+    <app-user-details class="result-search__user" [user]="user"></app-user-details>
+    <app-repositories [repositories]="repositories"></app-repositories>
+</div>

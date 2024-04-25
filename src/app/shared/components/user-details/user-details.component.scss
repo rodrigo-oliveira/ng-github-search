@@ -18,9 +18,24 @@
       display: inline-flex;
       align-items: center;
     }
+
+    &--name {
+      margin: 0;
+    }
   }
 
   &__icon {
     margin-right: 10px;
+  }
+
+  &__divider {
+    color: var(--athens-gray);
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  p,
+  span:not(&__divider) {
+    color: var(--secondary-gray);
   }
 }
