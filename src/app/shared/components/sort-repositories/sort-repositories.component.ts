@@ -29,12 +29,7 @@ export class SortRepositoriesComponent {
     }
   ];
   selected = 'updated';
-
   @Output() selectionChange = new EventEmitter<string>();
-
-  constructor() {
-    console.log(this.selected)
-  }
 
   onSelectionChange(event: MatSelectChange) {
     this.selectionChange.emit(event.value);

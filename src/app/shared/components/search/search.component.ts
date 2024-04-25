@@ -23,9 +23,9 @@ import { GithubUsernameDirective } from '../../directives/github-username.direct
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-  @Output() submitSearch = new EventEmitter<string | null>();
+  @Output() submitSearch = new EventEmitter();
   searchForm = new FormGroup({
-    user: new FormControl(null, [
+    user: new FormControl('', [
       Validators.required
     ])
   }); 
