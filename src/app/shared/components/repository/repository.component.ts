@@ -1,14 +1,14 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { GitHubRepository } from '../../../core/models/github-repository.interface';
 import { BadgeComponent } from '../badge/badge.component';
 import { MatIconModule } from '@angular/material/icon';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-repository',
   standalone: true,
   imports: [
-    CommonModule,
+    DatePipe,
     BadgeComponent,
     MatIconModule
   ],
@@ -16,5 +16,5 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './repository.component.scss'
 })
 export class RepositoryComponent {
-  @Input() repository: GitHubRepository | any = null;
+  @Input() repository: GitHubRepository = {} as GitHubRepository;
 }

@@ -1,12 +1,11 @@
 import { Component, Signal } from '@angular/core';
 import { LoaderStoreService } from '../../../core/store/loader-store.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-loader',
   standalone: true,
-  imports: [ CommonModule, MatProgressSpinnerModule ],
+  imports: [ MatProgressSpinnerModule ],
   styleUrl: './loader.component.scss',
   template: '<div class="loader" [hidden]="!isLoading()"><mat-spinner></mat-spinner><div>'
 })

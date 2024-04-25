@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
@@ -8,7 +7,6 @@ import { SortOption } from '../../../core/models/sort-option.interface';
   selector: 'app-sort-repositories',
   standalone: true,
   imports: [
-    CommonModule,
     MatFormFieldModule,
     MatSelectModule
   ],

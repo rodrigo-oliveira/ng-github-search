@@ -1,5 +1,4 @@
 import { Injectable, WritableSignal, signal } from '@angular/core';
-import { GitHubUser } from '../models/github-user.interface';
 import { GitHubUserStar } from '../models/github-user-star.interface';
 
 @Injectable({

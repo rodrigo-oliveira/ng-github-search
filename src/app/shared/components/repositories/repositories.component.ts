@@ -1,15 +1,11 @@
 import { Component, Input } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { GitHubRepository } from "../../../core/models/github-repository.interface";
 import { RepositoryComponent } from "../repository/repository.component";
 
 @Component({
     selector: 'app-repositories',
     standalone: true,
-    imports: [
-        CommonModule,
-        RepositoryComponent
-    ],
+    imports: [ RepositoryComponent ],
     templateUrl: './repositories.component.html',
     styleUrl: './repositories.component.scss'
 })

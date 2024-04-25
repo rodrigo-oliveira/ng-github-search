@@ -1,13 +1,12 @@
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { IconResolver, MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ CommonModule, MatIconModule ],
+  imports: [ NgIf, MatIconModule ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

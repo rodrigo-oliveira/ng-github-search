@@ -1,4 +1,4 @@
-import { HttpEventType, type HttpInterceptorFn } from '@angular/common/http';
+import { type HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { finalize, tap } from 'rxjs';
 import { LoaderStoreService } from '../store/loader-store.service';

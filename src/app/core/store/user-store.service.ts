@@ -5,7 +5,7 @@ import { GitHubUser } from '../models/github-user.interface';
   providedIn: 'root'
 })
 export class UserStoreService {
-  private userSignal: WritableSignal<GitHubUser | any> = signal(null);
+  private userSignal: WritableSignal<GitHubUser> = signal({} as GitHubUser);
   readonly user = this.userSignal.asReadonly();
 
   constructor() { }
