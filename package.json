@@ -7,7 +7,7 @@
     "server": "json-server json-server/db.json --routes json-server/routes.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --code-coverage",
     "serve:ssr:ng-github-search": "node dist/ng-github-search/server/server.mjs"
   },
   "private": true,

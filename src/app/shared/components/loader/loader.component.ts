@@ -13,5 +13,4 @@ export class LoaderComponent {
   isLoading: Signal<boolean> = this.loaderStoreService.isLoading;
 
   constructor(private loaderStoreService: LoaderStoreService) {}
-  
 }

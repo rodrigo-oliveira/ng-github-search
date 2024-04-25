@@ -12,11 +12,15 @@ export class OfflineComponent {
 
   @HostListener('window:offline')
   setOffline(): void {
-    this.snackBar.open('You are offline', 'Ok', { verticalPosition: 'top' });
+    this.openSnackBar('You are offline');
   }
 
   @HostListener('window:online')
   setOnline(): void {
-    this.snackBar.open('Your connection is back', 'Ok', { verticalPosition: 'top' });
+    this.openSnackBar('Your connection is back');
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Ok', { verticalPosition: 'top' });
   }
 }
