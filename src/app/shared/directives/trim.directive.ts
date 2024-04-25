@@ -12,7 +12,6 @@ export class TrimDirective {
   ) {}
 
   @HostListener('blur') onBlur() {
-    console.log('onblur')
     this.ngControl.control?.setValue(this.el.nativeElement.value.trim());
   }
 }

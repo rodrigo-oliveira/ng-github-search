@@ -6,6 +6,7 @@ import { UserService } from '../../core/services/user.service';
 import { UserStoreService } from '../../core/store/user-store.service';
 import { Router } from '@angular/router';
 import { GitHubUser } from '../../core/models/github-user.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -22,15 +23,19 @@ export class HomeComponent {
 
   constructor(
     private router: Router,
+    private snackBar: MatSnackBar,
     private userService: UserService,
     private userStoreService: UserStoreService
   ) { }
 
   onSearch(searchValue: any) {
-    console.log(searchValue)
     this.userService.getUser(searchValue).subscribe((githubUser: GitHubUser) => {
       this.userStoreService.setUser(githubUser);
       this.router.navigate(['results']);
+    }, error => {
+      this.snackBar.open('User does not exist', 'Ok', {
+        verticalPosition: 'top'
+      });
     });
   }
 }
