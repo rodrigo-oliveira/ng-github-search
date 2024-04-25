@@ -1,0 +1,16 @@
+:host ::ng-deep {
+  p {
+    color: var(--secondary-gray);
+    margin: 0;
+  }
+}
+
+.footer {
+  margin-top: 20px;
+  padding: var(--default-padding-desktop);
+  border-top: 1px solid var(--catskill-whiteapprox);
+
+  @media screen and (max-width: 650px) {
+    padding: var(--default-padding-mobile);
+  }
+}

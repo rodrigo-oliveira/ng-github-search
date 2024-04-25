@@ -3,6 +3,8 @@
 }
 
 .result-search {
+  padding: var(--default-padding-desktop);
+
   &__user {
     display: block;
     margin: 40px 0 20px 0;
@@ -14,8 +16,13 @@
     align-items: center;
     justify-content: space-between;
     margin: 40px 0 20px 0;
+  }
 
-    @media screen and (max-width: 650px) {
+
+  @media screen and (max-width: 650px) {
+    padding: var(--default-padding-mobile);
+
+    &__header {
       flex-flow: column;
     }
   }

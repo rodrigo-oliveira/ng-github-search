@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { RepositoriesComponent } from '../../shared/components/repositories/repositories.component';
@@ -10,16 +9,19 @@ import { RepositoriesStoreService } from '../../core/store/repositories-store.se
 import { UserStarsStoreService } from '../../core/store/user-stars-store.service';
 import { SortRepositoriesComponent } from '../../shared/components/sort-repositories/sort-repositories.component';
 import { SORT_OPTION_UPDATED } from '../../core/constants/sort-options.constant';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-result-search',
   standalone: true,
   imports: [
-    CommonModule,
+    NgIf,
     HeaderComponent,
     RepositoriesComponent,
     UserDetailsComponent,
-    SortRepositoriesComponent
+    SortRepositoriesComponent,
+    FooterComponent
   ],
   templateUrl: './result-search.component.html',
   styleUrl: './result-search.component.scss'

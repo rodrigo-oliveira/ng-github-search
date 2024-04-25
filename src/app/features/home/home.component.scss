@@ -1,3 +1,8 @@
 :host {
   display: block;
+  padding: var(--default-padding-desktop);
+
+  @media screen and (max-width: 650px) {
+    padding: var(--default-padding-mobile);
+  }
 }
