@@ -5,7 +5,7 @@ import { GitHubRepository } from '../models/github-repository.interface';
   providedIn: 'root'
 })
 export class RepositoriesStoreService {
-  private repositoriesSignal: WritableSignal<GitHubRepository[] | any> = signal(null);
+  private repositoriesSignal: WritableSignal<GitHubRepository[]> = signal([]);
   readonly repositories = this.repositoriesSignal.asReadonly();
 
   constructor() { }

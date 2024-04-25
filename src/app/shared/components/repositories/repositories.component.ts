@@ -1,5 +1,4 @@
 import { Component, Input } from "@angular/core";
-import { SortRepositoriesComponent } from "../sort-repositories/sort-repositories.component";
 import { CommonModule } from "@angular/common";
 import { GitHubRepository } from "../../../core/models/github-repository.interface";
 import { RepositoryComponent } from "../repository/repository.component";
@@ -9,8 +8,7 @@ import { RepositoryComponent } from "../repository/repository.component";
     standalone: true,
     imports: [
         CommonModule,
-        RepositoryComponent,
-        SortRepositoriesComponent
+        RepositoryComponent
     ],
     templateUrl: './repositories.component.html',
     styleUrl: './repositories.component.scss'

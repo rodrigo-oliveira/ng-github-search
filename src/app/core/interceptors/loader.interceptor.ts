@@ -12,7 +12,6 @@ export const loaderInterceptor: HttpInterceptorFn = (req, next) => {
     }),
     finalize(() => {
       loaderStoreService.hide();
-      console.log('finalize', loaderStoreService.isLoading());
     })
   );
 };

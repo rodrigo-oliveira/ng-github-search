@@ -1,11 +1,4 @@
 <div class="repositories">
-    @if (repositories.length > 0) {
-        <div class="repositories__header">
-            <h2>Repositories: {{repositories.length}}</h2>
-            <app-sort-repositories></app-sort-repositories>
-        </div>
-    }
-
     @for (repository of repositories; track repository) {
        <app-repository [repository]="repository" class="repositories__item"></app-repository>
     } @empty {

@@ -7,7 +7,8 @@ import { GitHubRepository } from '../../core/models/github-repository.interface'
 import { RepositoriesService } from '../../core/services/repositories.service';
 import { UserStoreService } from '../../core/store/user-store.service';
 import { RepositoriesStoreService } from '../../core/store/repositories-store.service';
-import { GitHubUser } from '../../core/models/github-user.interface';
+import { UserStarsStoreService } from '../../core/store/user-stars-store.service';
+import { SortRepositoriesComponent } from '../../shared/components/sort-repositories/sort-repositories.component';
 
 @Component({
   selector: 'app-result-search',
@@ -16,29 +17,36 @@ import { GitHubUser } from '../../core/models/github-user.interface';
     CommonModule,
     HeaderComponent,
     RepositoriesComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    SortRepositoriesComponent
   ],
   templateUrl: './result-search.component.html',
   styleUrl: './result-search.component.scss'
 })
 export class ResultsSearchComponent implements OnInit {
-  user: GitHubUser | any = null;
-  repositories: GitHubRepository[] = [];
+  userStarsCounter: number = 0;
 
   constructor(
     private repositoriesService: RepositoriesService,
-    private userStoreService: UserStoreService,
-    private repositoriesStoreService: RepositoriesStoreService
-  ) { }
+    public userStoreService: UserStoreService,
+    private userStarsStoreService: UserStarsStoreService,
+    public repositoriesStoreService: RepositoriesStoreService
+  ) {}
 
   ngOnInit() {
-    this.user = this.userStoreService.user() || null;
-
-    if (this.user) {
-      this.repositoriesService.getRepositoriesUser(this.user.login).subscribe((repositories: GitHubRepository[]) => {
-          this.repositoriesStoreService.setRepositories(repositories);
-          this.repositories = repositories;
-      });
+    if (this.userStoreService.user()) {
+      this.userStarsCounter = this.userStarsStoreService.stars().length;
+      this.getRepositoriesUser('updated');
     }
+  }
+
+  getRepositoriesUser(sort: string) {
+    this.repositoriesService.getRepositoriesUser(this.userStoreService.user().login, sort).subscribe((repositories: GitHubRepository[]) => {
+      this.repositoriesStoreService.setRepositories(repositories);
+    });
+  }
+
+  onChangeSort(sort: string) {
+    this.getRepositoriesUser(sort);
   }
 }

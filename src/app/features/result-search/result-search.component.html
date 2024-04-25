@@ -1,5 +1,13 @@
 <div class="result-search">
     <app-header [showBackButton]="true" [alignCenter]="false"></app-header>
-    <app-user-details class="result-search__user" [user]="user"></app-user-details>
-    <app-repositories [repositories]="repositories"></app-repositories>
+    <app-user-details
+        class="result-search__user"
+        [user]="userStoreService.user()"
+        [userStarsCounter]="userStarsCounter">
+    </app-user-details>
+    <div class="result-search__header">
+        <h2>Repositories: {{ repositoriesStoreService.repositories().length }}</h2>
+        <app-sort-repositories (selectionChange)="onChangeSort($event)" *ngIf="repositoriesStoreService.repositories().length > 0"></app-sort-repositories>
+    </div>
+    <app-repositories [repositories]="repositoriesStoreService.repositories()"></app-repositories>
 </div>

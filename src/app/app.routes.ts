@@ -4,5 +4,5 @@ import { ResultsSearchComponent } from './features/result-search/result-search.c
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'results', component: ResultsSearchComponent },
+    { path: 'repositories', component: ResultsSearchComponent },
 ];

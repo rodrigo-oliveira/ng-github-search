@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { GitHubUser } from '../models/github-user.interface';
 import { Observable } from 'rxjs';
 import { GITHUB_API_USERS } from '../constants/api.constant';
+import { GitHubUserStar } from '../models/github-user-star.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,9 @@ export class UserService {
 
   getUser(username: string): Observable<GitHubUser> {
     return this.http.get<GitHubUser>(`${GITHUB_API_USERS}/${username}`);
+  }
+
+  getUserStars(username: string): Observable<GitHubUserStar[]> {
+    return this.http.get<GitHubUserStar[]>(`${GITHUB_API_USERS}/${username}/starred`);
   }
 }
