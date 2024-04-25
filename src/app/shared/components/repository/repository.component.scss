@@ -2,12 +2,12 @@
   display: flex;
   flex-flow: column;
   margin: 0 0 20px 0;
-  padding: 0 0 20px 0;
-  border-radius: 20px;
   transition: all 0.2s linear;
 
   &:hover {
-    background-color: var(--catskill-whiteapprox);
+    .repository {
+      background-color: var(--catskill-whiteapprox);
+    }
   }
 }
 
@@ -15,6 +15,7 @@
   display: flex;
   flex-flow: column;
   padding: 20px;
+  border-radius: 20px;
 
   &__header {
     display: flex;
@@ -47,6 +48,14 @@
       width: 16px;
       height: 16px;
       margin-right: 5px;
+    }
+  }
+
+  &__language {
+    width: 140px;
+
+    @media screen and (max-width: 650px) {
+      width: auto;
     }
   }
 

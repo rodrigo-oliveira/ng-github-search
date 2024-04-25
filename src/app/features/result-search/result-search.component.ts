@@ -9,6 +9,7 @@ import { UserStoreService } from '../../core/store/user-store.service';
 import { RepositoriesStoreService } from '../../core/store/repositories-store.service';
 import { UserStarsStoreService } from '../../core/store/user-stars-store.service';
 import { SortRepositoriesComponent } from '../../shared/components/sort-repositories/sort-repositories.component';
+import { SORT_OPTION_UPDATED } from '../../core/constants/sort-options.constant';
 
 @Component({
   selector: 'app-result-search',
@@ -36,17 +37,17 @@ export class ResultsSearchComponent implements OnInit {
   ngOnInit() {
     if (this.userStoreService.user()) {
       this.userStarsCounter = this.userStarsStoreService.stars().length;
-      this.getRepositoriesUser('updated');
+      this.getRepositoriesUser(SORT_OPTION_UPDATED);
     }
   }
 
-  getRepositoriesUser(sort: string) {
-    this.repositoriesService.getRepositoriesUser(this.userStoreService.user().login, sort).subscribe((repositories: GitHubRepository[]) => {
+  getRepositoriesUser(sortType: string) {
+    this.repositoriesService.getRepositoriesUser(this.userStoreService.user().login, sortType).subscribe((repositories: GitHubRepository[]) => {
       this.repositoriesStoreService.setRepositories(repositories);
     });
   }
 
-  onChangeSort(sort: string) {
-    this.getRepositoriesUser(sort);
+  onChangeSort(sortType: string) {
+    this.getRepositoriesUser(sortType);
   }
 }

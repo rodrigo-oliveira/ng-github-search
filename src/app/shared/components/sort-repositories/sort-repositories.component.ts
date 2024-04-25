@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { SortOption } from '../../../core/models/sort-option.interface';
+import { SORT_OPTION_UPDATED, SORT_OPTIONS } from '../../../core/constants/sort-options.constant';
 
 @Component({
   selector: 'app-sort-repositories',
@@ -14,21 +15,8 @@ import { SortOption } from '../../../core/models/sort-option.interface';
   styleUrl: './sort-repositories.component.scss'
 })
 export class SortRepositoriesComponent {
-  options: SortOption[] = [
-    {
-      name: 'Last updated',
-      value: 'updated'
-    },
-    {
-      name: 'Name',
-      value: 'full_name'
-    },
-    {
-      name: 'Stars',
-      value: 'pushed'
-    }
-  ];
-  selected = 'updated';
+  options: SortOption[] = SORT_OPTIONS;
+  selected = SORT_OPTION_UPDATED;
   @Output() selectionChange = new EventEmitter<string>();
 
   onSelectionChange(event: MatSelectChange) {

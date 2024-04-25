@@ -11,7 +11,7 @@ export class RepositoriesService {
 
   constructor(private http: HttpClient) { }
 
-  getRepositoriesUser(username: string, sort: string): Observable<GitHubRepository[]> {
-    return this.http.get<GitHubRepository[]>(`${GITHUB_API_USERS}/${username}/repos?sort=${sort}`);
+  getRepositoriesUser(username: string, sortType: string): Observable<GitHubRepository[]> {
+    return this.http.get<GitHubRepository[]>(`${GITHUB_API_USERS}/${username}/repos?sort=${sortType}`);
   }
 }

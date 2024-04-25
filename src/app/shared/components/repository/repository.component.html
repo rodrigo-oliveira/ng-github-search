@@ -9,7 +9,7 @@
         <p>{{ repository.description }}</p>
 
         <div class="repository__footer">
-            <span>Language: @if (repository.language) { {{ repository.language }} } @else { None }</span>
+            <span class="repository__language">Language: @if (repository.language) { {{ repository.language }} } @else { None }</span>
             <span class="repository__forks">
                 <mat-icon
                     svgIcon="code-fork"
