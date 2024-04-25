@@ -3,6 +3,9 @@
       <mat-icon matSuffix>search</mat-icon>
       <mat-label>Search user</mat-label>
       <input type="search" matInput formControlName="user">
+      @if (searchForm.controls.user.errors?.['required']) {
+        <mat-error>Campo obrigatório</mat-error>
+      }
     </mat-form-field>
 
     <button mat-flat-button color="primary" class="search__button">Search</button>

@@ -7,7 +7,7 @@
         <p>{{ repository.description }}</p>
 
         <div class="repository__footer">
-            <span>Language: {{ repository.language }}</span>
+            <span>Language: @if (repository.language) { {{ repository.language }} } @else { None }</span>
             <div class="repository__updated">
                 <span>Last update: {{ repository.updated_at | date : 'dd/MM/yyyy HH:mm'}}</span>
             </div>

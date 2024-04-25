@@ -26,7 +26,7 @@ export class HomeComponent {
     private userStoreService: UserStoreService
   ) { }
 
-  onSearch(searchValue: string) {
+  onSearch(searchValue: any) {
     console.log(searchValue)
     this.userService.getUser(searchValue).subscribe((githubUser: GitHubUser) => {
       this.userStoreService.setUser(githubUser);
