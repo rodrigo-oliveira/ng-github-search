@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { TrimDirective } from '../../directives/trim.directive';
 
 @Component({
   selector: 'app-search',
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TrimDirective
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
@@ -31,7 +33,6 @@ export class SearchComponent {
   constructor() { }
 
   onSubmit() {
-    console.log('errors', this.searchForm.controls.user.errors)
     if(this.searchForm.valid) {
       this.submitSearch.emit(this.searchForm.value.user);
     }
