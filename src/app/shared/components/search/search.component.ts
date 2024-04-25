@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { TrimDirective } from '../../directives/trim.directive';
+import { GithubUsernameDirective } from '../../directives/github-username.directive';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +18,8 @@ import { TrimDirective } from '../../directives/trim.directive';
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
-    TrimDirective
+    TrimDirective,
+    GithubUsernameDirective
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'

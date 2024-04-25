@@ -2,7 +2,7 @@
     <mat-form-field class="search__input">
       <mat-icon matSuffix>search</mat-icon>
       <mat-label>Search user</mat-label>
-      <input type="search" matInput formControlName="user" appTrim>
+      <input type="search" matInput formControlName="user" appTrim appGithubUsernameDirective maxlength="39">
       @if (searchForm.controls.user.errors?.['required']) {
         <mat-error>Required field</mat-error>
       }

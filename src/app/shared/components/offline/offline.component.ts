@@ -1,16 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-offline',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  template: ``,
-  styleUrl: './offline.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '',
+  styles: ''
 })
 export class OfflineComponent {  
   constructor(private snackBar: MatSnackBar) { }

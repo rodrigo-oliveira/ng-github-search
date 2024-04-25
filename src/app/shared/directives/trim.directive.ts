@@ -8,10 +8,10 @@ import { NgControl } from '@angular/forms';
 export class TrimDirective {
   constructor(
     private el: ElementRef,
-    @Optional() private ngControl: NgControl
+    private ngControl: NgControl
   ) {}
 
-  @HostListener('blur') onBlur() {
-    this.ngControl.control?.setValue(this.el.nativeElement.value.trim());
+  @HostListener('input') onInput() {
+    this.ngControl.control?.setValue(this.el.nativeElement.value.replace(/\s/g, ''));
   }
 }

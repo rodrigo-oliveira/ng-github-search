@@ -34,7 +34,8 @@ export class HomeComponent {
       this.router.navigate(['results']);
     }, error => {
       this.snackBar.open('User does not exist', 'Ok', {
-        verticalPosition: 'top'
+        verticalPosition: 'top',
+        duration: 5000
       });
     });
   }

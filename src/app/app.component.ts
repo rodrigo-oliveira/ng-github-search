@@ -4,7 +4,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IconResolver, MatIconRegistry } from '@angular/material/icon';
 import { LoaderComponent } from './shared/components/loader/loader.component';
-import { OfflineComponent } from './shared/components/offline/offline/offline.component';
+import { OfflineComponent } from './shared/components/offline/offline.component';
 
 @Component({
   selector: 'app-root',

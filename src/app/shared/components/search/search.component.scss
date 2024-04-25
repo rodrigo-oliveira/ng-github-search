@@ -17,6 +17,10 @@
 
     &__input {
       margin-right: 0;
+
+      &.mat-form-field-invalid {
+        margin-bottom: 20px;
+      }
     }
   
     &__button {
