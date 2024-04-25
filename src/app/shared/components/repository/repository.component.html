@@ -10,12 +10,15 @@
 
         <div class="repository__footer">
             <span>Language: @if (repository.language) { {{ repository.language }} } @else { None }</span>
-            <div class="repository__forks">
-                <span>Forks: {{ repository.forks_count}}</span>
-            </div>
-            <div class="repository__updated">
-                <span>Last update: {{ repository.updated_at | date : 'dd/MM/yyyy HH:mm'}}</span>
-            </div>
+            <span class="repository__forks">
+                <mat-icon
+                    svgIcon="code-fork"
+                    class="repository__icon repository__icon--fork"
+                    alt="Forks"
+                    title="Forks"
+                ></mat-icon>
+                Forks: {{ repository.forks_count}}</span>
+            <span class="repository__updated">Last update: {{ repository.updated_at | date : 'dd/MM/yyyy HH:mm'}}</span>
         </div>
     </div>
 </div>

@@ -2,4 +2,8 @@
   p {
     color: var(--secondary-gray);
   }
+
+  &__repository:last-child {
+    margin-bottom: 0;
+  }
 }

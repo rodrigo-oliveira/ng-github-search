@@ -1,6 +1,6 @@
 <div class="repositories">
     @for (repository of repositories; track repository) {
-       <app-repository [repository]="repository" class="repositories__item"></app-repository>
+       <app-repository [repository]="repository" class="repositories__repository"></app-repository>
     } @empty {
         <p>There are no repositories.</p>
     }
