@@ -27,10 +27,6 @@
       margin: 0 10px 0 0;
   }
 
-  &__content {
-    flex: 1;
-  }
-
   &__footer {
     display: flex;
     align-items: flex-start;
@@ -38,6 +34,9 @@
     gap: 20px;
   }
 
+  &__badge {
+    margin-right: 10px;
+  }
 
   p, span {
     color: var(--secondary-gray);

@@ -1,9 +1,11 @@
 <div class="repository">    
-    <div class="content">
+    <div class="repository__content">
         <div class="repository__header">
             <a [href]="repository.html_url" target="_blank" class="repository__author">{{ repository.name }}</a>
-            <app-badge>{{repository.private ? 'Private' : 'Public'}}</app-badge>
+            <app-badge class="repository__badge">{{ repository.private ? 'Private' : 'Public'}} </app-badge>
+            <app-badge *ngIf="repository.fork" class="repository__badge">Forked</app-badge>
         </div>
+
         <p>{{ repository.description }}</p>
 
         <div class="repository__footer">
