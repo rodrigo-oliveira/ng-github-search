@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project is an Angular 17 application for browsing GitHub users. It utilizes Angular Signals for state management, Angular Material for design components, SASS as the preprocessor for styling, and follows the BEM (Block Element Modifier) methodology for CSS.
 
+![Screenshot](https://raw.githubusercontent.com/rodrigo-oliveira/ng-github-search/main/screenshot.png)
+
 ## Development server
 
 Run `npm run start` for a dev server.
