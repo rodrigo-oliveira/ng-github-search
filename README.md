@@ -26,9 +26,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Technologies
 
 ### Framework
 
@@ -50,16 +48,27 @@ SASS
 
 BEM (Block Element Modifier)
 
-### Font
+### Mocks API
 
-Apercu Font Family
+[JSON Server](https://www.npmjs.com/package/json-server)
 
-### Prototype
+### Cloud service
+[Netlify](https://www.netlify.com/)
+
+## Prototype
 
 [Figma Prototype](https://www.figma.com/file/AsN8wETrq7twRQufOjyjWW/GitHub-Users?type=design&node-id=40%3A294&mode=design&t=LvhMmyBomrhsDkk8-1)
 
-### Template Used
+### Template
 
 The template used for the search component can be found here.
+
 [Figma Search Component Template](https://www.figma.com/community/file/864973820607942580/search-component?searchSessionId=lvg3dt7f-hszi13tc0n)
 
+## Access to the Project
+
+[Netlify APP](https://ng-github-search.netlify.app/)
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
