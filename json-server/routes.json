@@ -1,5 +1,5 @@
 {
-  "/users/:user": "/users",
+  "/users/:user": "/user",
   "/users/:user/repos": "/repos",
   "/users/:user/starred": "/starred"
 }

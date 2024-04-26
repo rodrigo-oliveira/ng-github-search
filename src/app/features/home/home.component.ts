@@ -30,7 +30,7 @@ export class HomeComponent {
     private userStarsStore: UserStarsStoreService
   ) { }
 
-  onSearch(searchValue: any) {
+  onSearch(searchValue: string) {
     this.getUser(searchValue);
   }
 

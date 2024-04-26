@@ -21,12 +21,12 @@ import { NgIf } from '@angular/common';
     RepositoriesComponent,
     UserDetailsComponent,
     SortRepositoriesComponent,
-    FooterComponent
+    FooterComponent,
   ],
   templateUrl: './result-search.component.html',
-  styleUrl: './result-search.component.scss'
+  styleUrl: './result-search.component.scss',
 })
-export class ResultsSearchComponent implements OnInit {
+export class ResultSearchComponent implements OnInit {
   userStarsCounter: number = 0;
 
   constructor(
@@ -44,9 +44,13 @@ export class ResultsSearchComponent implements OnInit {
   }
 
   getRepositoriesUser(sortType: string) {
-    this.repositoriesService.getRepositoriesUser(this.userStoreService.user().login, sortType).subscribe((repositories: GitHubRepository[]) => {
-      this.repositoriesStoreService.setRepositories(repositories);
-    });
+    const login = this.userStoreService.user().login;
+
+    this.repositoriesService
+      .getRepositoriesUser(login, sortType)
+      .subscribe((repositories: GitHubRepository[]) => {
+        this.repositoriesStoreService.setRepositories(repositories);
+      });
   }
 
   onChangeSort(sortType: string) {
