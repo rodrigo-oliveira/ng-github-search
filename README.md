@@ -57,17 +57,13 @@ BEM (Block Element Modifier)
 
 ## Prototype
 
-[Figma Prototype](https://www.figma.com/file/AsN8wETrq7twRQufOjyjWW/GitHub-Users?type=design&node-id=40%3A294&mode=design&t=LvhMmyBomrhsDkk8-1)
+Prototype: [Figma Prototype](https://www.figma.com/file/AsN8wETrq7twRQufOjyjWW/GitHub-Users?type=design&node-id=40%3A294&mode=design&t=LvhMmyBomrhsDkk8-1)
 
-### Template
+Template used: [Figma Search Component Template](https://www.figma.com/community/file/864973820607942580/search-component?searchSessionId=lvg3dt7f-hszi13tc0n)
 
-The template used for the search component can be found here.
+## Access to the project
 
-[Figma Search Component Template](https://www.figma.com/community/file/864973820607942580/search-component?searchSessionId=lvg3dt7f-hszi13tc0n)
-
-## Access to the Project
-
-[Netlify APP](https://ng-github-search.netlify.app/)
+Netlify APP: [https://ng-github-search.netlify.app/](https://ng-github-search.netlify.app/)
 
 ## Further help
 
