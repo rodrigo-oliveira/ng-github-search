@@ -8,7 +8,10 @@ import { UserStoreService } from '../../core/store/user-store.service';
 import { RepositoriesStoreService } from '../../core/store/repositories-store.service';
 import { UserStarsStoreService } from '../../core/store/user-stars-store.service';
 import { SortRepositoriesComponent } from '../../shared/components/sort-repositories/sort-repositories.component';
-import { SORT_OPTION_UPDATED } from '../../core/constants/sort-options.constant';
+import {
+  SORT_OPTION_STARS,
+  SORT_OPTION_UPDATED,
+} from '../../core/constants/sort-options.constant';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { NgIf } from '@angular/common';
 
@@ -46,11 +49,23 @@ export class ResultSearchComponent implements OnInit {
   getRepositoriesUser(sortType: string) {
     const login = this.userStoreService.user().login;
 
-    this.repositoriesService
-      .getRepositoriesUser(login, sortType)
-      .subscribe((repositories: GitHubRepository[]) => {
-        this.repositoriesStoreService.setRepositories(repositories);
-      });
+    if (sortType !== SORT_OPTION_STARS) {
+      this.repositoriesService
+        .getRepositoriesUser(login, sortType)
+        .subscribe((repositories: GitHubRepository[]) => {
+          this.repositoriesStoreService.setRepositories(repositories);
+        });
+    } else {
+      this.sortRepositoriesByStars();
+    }
+  }
+
+  sortRepositoriesByStars() {
+    const repositoriesSortedByStars = this.repositoriesStoreService
+      .repositories()
+      .sort((a, b) => (a.stargazers_count < b.stargazers_count ? 1 : -1));
+
+    this.repositoriesStoreService.setRepositories(repositoriesSortedByStars);
   }
 
   onChangeSort(sortType: string) {

@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserStoreService } from '../../core/store/user-store.service';
 import { UserStarsStoreService } from '../../core/store/user-stars-store.service';
 import { RepositoriesStoreService } from '../../core/store/repositories-store.service';
-import { SORT_OPTION_UPDATED } from '../../core/constants/sort-options.constant';
+import { SORT_OPTION_STARS, SORT_OPTION_UPDATED } from '../../core/constants/sort-options.constant';
 import { RepositoriesService } from '../../core/services/repositories.service';
 import { of } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
@@ -54,9 +54,27 @@ describe('ResultSearchComponent', () => {
     expect(repositoriesStoreService.repositories()).toEqual(reposMockData);
   });
 
+  it('should execute getRepositoriesUser("stars") method and call sortRepositoriesByStars method', () => {
+    spyOn(component, 'sortRepositoriesByStars');
+    component.onChangeSort(SORT_OPTION_STARS);
+    expect(component.sortRepositoriesByStars).toHaveBeenCalled();
+  });
+
   it('should execute onChangeSort and call getRepositoriesUser method', () => {
     spyOn(component, 'getRepositoriesUser');
     component.onChangeSort(SORT_OPTION_UPDATED);
     expect(component.getRepositoriesUser).toHaveBeenCalledWith(SORT_OPTION_UPDATED);
+  });
+
+  it('should execute sortRepositoriesByStars method and set repositories to the repositoriesStoreService', () => {
+    let repositoriesSortedByStars = [];
+
+    repositoriesStoreService.setRepositories(reposMockData);
+    repositoriesSortedByStars = repositoriesStoreService
+        .repositories()
+        .sort((a, b) => (a.stargazers_count < b.stargazers_count ? 1 : -1));
+    spyOn(repositoriesStoreService, 'setRepositories');
+    component.sortRepositoriesByStars();
+    expect(repositoriesStoreService.repositories()).toEqual(repositoriesSortedByStars);
   });
 });

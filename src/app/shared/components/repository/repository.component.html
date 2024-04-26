@@ -16,8 +16,14 @@
                     class="repository__icon repository__icon--fork"
                     alt="Forks"
                     title="Forks"
-                ></mat-icon>
-                Forks: {{ repository.forks_count}}</span>
+                ></mat-icon>Forks: {{ repository.forks_count}}</span>
+            <span class="repository__stars">
+                <mat-icon
+                    class="repository__icon repository__icon--star"
+                    alt="Stars"
+                    title="Stars"
+                >star</mat-icon>{{ repository.stargazers_count }}
+            </span>
             <span class="repository__updated">Last update: {{ repository.updated_at | date : 'dd/MM/yyyy HH:mm'}}</span>
         </div>
     </div>

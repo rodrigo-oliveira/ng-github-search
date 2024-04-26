@@ -30,9 +30,14 @@
 
   &__footer {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin: 10px 0 0 0;
     gap: 20px;
+
+    @media screen and (max-width: 650px) {
+     flex-flow: column;
+     align-items: flex-start;
+    }
   }
 
   &__badge {
@@ -44,22 +49,25 @@
   }
 
   &__icon {
+    margin-right: 5px;
+  
     &--fork {
+      width: 14px;
+      height: 14px;
+    }
+
+    &--star {
+      font-size: 16px;
       width: 16px;
       height: 16px;
-      margin-right: 5px;
     }
   }
 
   &__language {
     width: 140px;
-
-    @media screen and (max-width: 650px) {
-      width: auto;
-    }
   }
 
-  &__forks {
+  &__forks, &__stars {
     display: inline-flex;
     align-items: center;
   }
