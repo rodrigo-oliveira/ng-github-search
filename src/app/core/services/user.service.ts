@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GitHubUser } from '../models/github-user.interface';
 import { Observable } from 'rxjs';
+import { GitHubUser } from '../models/github-user.interface';
 import { GITHUB_API_USERS } from '../constants/api.constant';
 import { GitHubUserStar } from '../models/github-user-star.interface';
 
