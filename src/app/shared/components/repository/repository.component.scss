@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: column;
   margin: 0 0 20px 0;
-  transition: all 0.2s linear;
 
   &:hover {
     .repository {
@@ -16,6 +15,7 @@
   flex-flow: column;
   padding: 20px;
   border-radius: 20px;
+  transition: all 0.2s linear;
 
   &__header {
     display: flex;
