@@ -11,6 +11,8 @@ This project is an Angular 17 application for browsing GitHub users. It utilizes
 ## Development server
 
 Run `npm run start` for a dev server.
+Run `npm run start:prod` to run the application pointing to GitHub API.
+
 Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 The JSON Server will also be executed on port 3000.
