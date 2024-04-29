@@ -66,4 +66,6 @@ Template used: [Figma Search Component Template](https://www.figma.com/community
 
 ## Access to the project
 
-Netlify APP: [https://ng-github-search.netlify.app/](https://ng-github-search.netlify.app/)
+Netlify APP (Production): [https://ng-github-search.netlify.app/](https://ng-github-search.netlify.app/)
+
+Netlify APP (Staging): [https://staging--ng-github-search.netlify.app/](https://staging--ng-github-search.netlify.app/)
