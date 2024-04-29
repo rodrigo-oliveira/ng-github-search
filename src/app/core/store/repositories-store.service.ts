@@ -13,4 +13,10 @@ export class RepositoriesStoreService {
   setRepositories(repositories: GitHubRepository[]) {
     this.repositoriesSignal.set(repositories);
   }
+
+  sortRepositoriesByStars() {
+    this.repositoriesSignal.update(repositories => {
+      return repositories.sort((a, b) => (a.stargazers_count < b.stargazers_count ? 1 : -1));
+    });
+  }
 }

@@ -2,15 +2,15 @@
     <app-header [showBackButton]="true" [alignCenter]="false"></app-header>
     <app-user-details
         class="result-search__user"
-        [user]="userStoreService.user()"
-        [userStarsCounter]="userStarsCounter">
+        [user]="resultSearchFacade.user() || null"
+        [userStarsCounter]="resultSearchFacade.userStarsCounter()">
     </app-user-details>
     <div class="result-search__header">
-        <h2>Repositories: {{ repositoriesStoreService.repositories().length }}</h2>
-        <app-sort-repositories (selectionChange)="onChangeSort($event)" *ngIf="repositoriesStoreService.repositories().length > 0"></app-sort-repositories>
+        <h2>Repositories: {{ resultSearchFacade.repositories().length }}</h2>
+        <app-sort-repositories (selectionChange)="resultSearchFacade.onChangeSort($event)" *ngIf="resultSearchFacade.repositories().length > 0"></app-sort-repositories>
     </div>
-    <app-repositories [repositories]="repositoriesStoreService.repositories()"></app-repositories>
+    <app-repositories [repositories]="resultSearchFacade.repositories()"></app-repositories>
 </div>
 <app-footer>
-    <p>{{ repositoriesStoreService.repositories().length }} repositories</p>
+    <p>{{ resultSearchFacade.repositories().length }} repositories</p>
 </app-footer>

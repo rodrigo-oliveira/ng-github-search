@@ -1,23 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ResultSearchComponent } from './result-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserStoreService } from '../../core/store/user-store.service';
-import { UserStarsStoreService } from '../../core/store/user-stars-store.service';
-import { RepositoriesStoreService } from '../../core/store/repositories-store.service';
-import { SORT_OPTION_STARS, SORT_OPTION_UPDATED } from '../../core/constants/sort-options.constant';
-import { RepositoriesService } from '../../core/services/repositories.service';
-import { of } from 'rxjs';
+import { ResultSearchFacade } from './result-search.facade';
 import { HttpClientModule } from '@angular/common/http';
-import { userMockData } from '../../core/mocks/user.mock.data';
-import { reposMockData } from '../../core/mocks/repos.mock.data';
 
 describe('ResultSearchComponent', () => {
   let component: ResultSearchComponent;
   let fixture: ComponentFixture<ResultSearchComponent>;
-  let userStoreService: UserStoreService;
-  let userStarsStoreService: UserStarsStoreService;
-  let repositoriesStoreService: RepositoriesStoreService;
-  let repositoriesService: RepositoriesService;
+  let facade: ResultSearchFacade;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -29,12 +19,8 @@ describe('ResultSearchComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(ResultSearchComponent);
-    repositoriesService = TestBed.inject(RepositoriesService);
-    userStoreService = TestBed.inject(UserStoreService);
-    userStarsStoreService = TestBed.inject(UserStarsStoreService);
-    repositoriesStoreService = TestBed.inject(RepositoriesStoreService);
+    facade = TestBed.inject(ResultSearchFacade);
     component = fixture.componentInstance;
-    userStoreService.setUser(userMockData);
     fixture.detectChanges();
   });
 
@@ -42,39 +28,10 @@ describe('ResultSearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should execute ngOnit method and call getRepositoriesUser method', () => {
-    spyOn(component, 'getRepositoriesUser');
+  it('should execute ngOnit method and call load method', () => {
+    spyOn(facade, 'load');
     component.ngOnInit();
-    expect(component.getRepositoriesUser).toHaveBeenCalledWith(SORT_OPTION_UPDATED);
+    expect(facade.load).toHaveBeenCalled();
   });
 
-  it('should execute getRepositoriesUser method and set repositories to the repositoriesStoreService', () => {
-    spyOn(repositoriesService, 'getRepositoriesUser').and.returnValue(of(reposMockData));
-    component.getRepositoriesUser(SORT_OPTION_UPDATED);
-    expect(repositoriesStoreService.repositories()).toEqual(reposMockData);
-  });
-
-  it('should execute getRepositoriesUser("stars") method and call sortRepositoriesByStars method', () => {
-    spyOn(component, 'sortRepositoriesByStars');
-    component.onChangeSort(SORT_OPTION_STARS);
-    expect(component.sortRepositoriesByStars).toHaveBeenCalled();
-  });
-
-  it('should execute onChangeSort and call getRepositoriesUser method', () => {
-    spyOn(component, 'getRepositoriesUser');
-    component.onChangeSort(SORT_OPTION_UPDATED);
-    expect(component.getRepositoriesUser).toHaveBeenCalledWith(SORT_OPTION_UPDATED);
-  });
-
-  it('should execute sortRepositoriesByStars method and set repositories to the repositoriesStoreService', () => {
-    let repositoriesSortedByStars = [];
-
-    repositoriesStoreService.setRepositories(reposMockData);
-    repositoriesSortedByStars = repositoriesStoreService
-        .repositories()
-        .sort((a, b) => (a.stargazers_count < b.stargazers_count ? 1 : -1));
-    spyOn(repositoriesStoreService, 'setRepositories');
-    component.sortRepositoriesByStars();
-    expect(repositoriesStoreService.repositories()).toEqual(repositoriesSortedByStars);
-  });
 });

@@ -27,4 +27,17 @@ describe('RepositoriesStoreService', () => {
     service.setRepositories(repositories);
     expect(service.repositories()).toEqual(repositories);
   });
+
+  it('should execute sortRepositoriesByStars method and set repositories', () => {
+    let repositoriesSortedByStars = [];
+
+    service.setRepositories(reposMockData);
+    repositoriesSortedByStars = service
+        .repositories()
+        .sort((a, b) => (a.stargazers_count < b.stargazers_count ? 1 : -1));
+    spyOn(service, 'setRepositories');
+    service.sortRepositoriesByStars();
+    expect(service.repositories()).toEqual(repositoriesSortedByStars);
+  });
+
 });

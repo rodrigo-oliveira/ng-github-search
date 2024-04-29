@@ -27,4 +27,12 @@ describe('UserStarsStoreService', () => {
     service.setStars(stars);
     expect(service.stars()).toEqual(stars);
   });
+
+  it('should call updateUserStarsCounterSignals', () => {
+    const stars: GitHubUserStar[] = starredMockData;
+
+    service.setStars(stars);
+    service.updateUserStarsCounter();
+    expect(service.userStarsCounter()).toEqual(stars.length);
+  });
 });
