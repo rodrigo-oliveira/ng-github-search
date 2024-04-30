@@ -9,48 +9,14 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// palette
-$ng-github-search-palette: (
-  50: #fafafa,
-  100: #f5f5f5,
-  200: #eeeeee,
-  300: #e0e0e0,
-  400: #bdbdbd,
-  500: #181818,
-  600: #757575,
-  700: #616161,
-  800: #424242,
-  900: #212121,
-  A100: #ffffff,
-  A200: #eeeeee,
-  A400: #bdbdbd,
-  A700: #616161,
-  contrast: (
-    50: white,
-    100: white,
-    200: white,
-    300: white,
-    400: white,
-    500: white,
-    600: var(--secondary-gray),
-    700: var(--secondary-gray),
-    800: var(--secondary-gray),
-    900: var(--secondary-gray),
-    A100: white,
-    A200: white,
-    A400: white,
-    A700: var(--secondary-gray),
-  )
-);
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ng-github-search-primary: mat.define-palette($ng-github-search-palette);
+$ng-github-search-primary: mat.define-palette(mat.$grey-palette);
 $ng-github-search-accent: mat.define-palette(mat.$red-palette, A200, A100, A400);
 $ng-github-search-warn: mat.define-palette(mat.$red-palette);
 
-// typography
+// Typography
 $ng-github-search-theme-typography: mat.define-typography-config(
   $font-family: '"Apercu Regular Pro", "Helvetica Neue", sans-serif',
   $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
@@ -78,3 +44,89 @@ $ng-github-search-theme: mat.define-light-theme((
 
 @include mat.core-theme($ng-github-search-theme);
 @include mat.all-component-themes($ng-github-search-theme);
+
+// Classes for custom theme
+%mdc-line-ripple {
+  &::before {
+    border-bottom-width: 0 !important;
+  }
+  &::after {
+    border-bottom-width: 0 !important;
+  }
+}
+
+%mdc-text-field {
+  --mdc-filled-text-field-container-shape: 12px;
+  border: 2px solid transparent;
+  border-bottom-right-radius: var(--mdc-filled-text-field-container-shape);
+  border-bottom-left-radius: var(--mdc-filled-text-field-container-shape);
+}
+
+%mat-form-field {
+  .mdc-line-ripple {
+    @extend %mdc-line-ripple;
+  }
+
+  .mdc-text-field {
+    @extend %mdc-text-field;
+
+    &--invalid {
+      border-color: var(--mdc-filled-text-field-error-active-indicator-color) !important;
+    }
+  }
+}
+
+mat-form-field {
+  // mat-form-field
+  &.custom-form-field {
+    --mat-form-field-state-layer-color: var(--catskill-whiteapprox);
+    --mat-form-field-focus-state-layer-opacity: 1;
+    --mdc-filled-text-field-container-color: var(--catskill-whiteapprox);
+    @extend %mat-form-field;
+  }
+
+  // mat-select
+  &.custom-form-field-select {
+    --mat-form-field-state-layer-color: white;
+    --mat-form-field-focus-state-layer-opacity: 0;
+    --mdc-filled-text-field-container-color: white;
+    @extend %mat-form-field;
+    
+    .mdc-text-field {
+      &--filled {
+        &:not(&--disabled) {
+          border: 2px solid var(--catskill-whiteapprox);
+        }
+      }
+  
+      &--focused {
+        border-color: var(--athens-gray) !important;
+      }
+    }
+
+    mat-select {
+      .mat-mdc-select-arrow-wrapper {
+        position: relative;
+
+        &:after {
+          content: '';
+          position: relative;
+          width: 18px;
+          height: 6px;
+          background-image: url('../assets/icons/select-arrow.svg');
+        }
+     
+        .mat-mdc-select-arrow {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// mat-button
+.mdc-button.custom-button {
+  --mdc-filled-button-container-color: var(--primary-gray);
+  --mdc-filled-button-label-text-color: white;
+  --mdc-filled-button-container-shape: 12px;
+}
